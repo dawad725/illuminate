@@ -1,59 +1,57 @@
-import React, { Component } from "react";
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+
+const useStyles = makeStyles(theme => ({
+    root: {
+        '& > *': {
+            margin: theme.spacing(1),
+            width: 100,
+        },
+    },
+}));
 
 
-class Form extends Component {
-    componentDidMount() {
-        // this.props.fetchProducts();
+export default function BasicTextFields() {
+    const classes = useStyles();
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        console.log('click')
+
     }
 
+    return (
+        <>
+            <div style={{ 'text-align': 'center' }}>
+                <h4 style={{ 'text-align': 'center' }}>Let's take an inventory of what kind of lights you have</h4>
 
-    // renderProducts() {
-    // return _.map(this.props.products, product => {
-    //     return (
-    //         <div class="mdc-form-field mdc-form-field--align-end">
-    //             <div class="mdc-checkbox">
-    //                 <input type="checkbox" id="my-checkbox" class="mdc-checkbox__native-control" />
-    //                 <div class="mdc-checkbox__background">
-    //                     ...
-    //                 </div>
-    //             </div>
-    //             <label for="my-checkbox">This is my checkbox</label>
-    //         </div>
-
-    render() {
-        const useStyles = makeStyles(theme => ({
-            root: {
-                '& > *': {
-                    margin: theme.spacing(1),
-                    width: 200,
-                },
-            },
-        }));
-
-        const classes = useStyles();
-
-        return (
-            <div className="container">
-                <form className={classes.root} noValidate autoComplete="off">
-                    <TextField id="standard-basic" label="Standard" />
-                    <TextField id="filled-basic" label="Filled" variant="filled" />
-                    <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+                <form className={classes.root} noValidate autoComplete="off" onSubmit={handleSubmit}>
+                    <div>
+                        <div>
+                            <h5>How many 60 watt lights do you have ? </h5>
+                            <TextField id="filled-basic" label="qty" variant="standard" />
+                        </div>
+                        <div>
+                            <h5>How many 40 watt lights do you have ? </h5>
+                            <TextField id="filled-basic" label="qty" variant="standard" />
+                        </div>
+                        <div>
+                            <h5>How many 15 watt lights do you have ? </h5>
+                            <TextField id="filled-basic" label="qty" variant="standard" />
+                        </div>
+                        <div>
+                            <h5>How many 4ft linear lights do you have ? </h5>
+                            <TextField id="filled-basic" label="qty" variant="standard" />
+                        </div>
+                    </div>
+                    <Button variant="contained" color="primary" style={{ color: '#F0FF5A' }} type='submit'>
+                        Let's go green!
+                </Button>
                 </form>
             </div>
-        );
-    }
-
+        </>
+    );
 }
-// function mapStateToProps(state) {
-//     return { pages: state.pagination, category: state.category, products: state.products };
-// }
 
-// function mapDispatchToProps(dispatch) {
-//     return bindActionCreators({ fetchProducts }, dispatch);
-// }
-
-// export default connect(mapStateToProps, mapDispatchToProps)(Products);
-
-export default Form

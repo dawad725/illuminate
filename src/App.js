@@ -1,14 +1,22 @@
-import React from 'react';
-import Form from './components/form'
+import React, { Component } from 'react';
+import { Route, Switch } from "react-router-dom";
+import Form from './components/form';
+// import Results from './components/results'
 
 
-function App() {
-  return (
-    <div className="App">
-      <h1 style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '' }}>Project EE</h1>
-      <Form />
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <div className="App" >
+        <h1 style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '' }}>Project EE</h1>
+        <Switch>
+          <Route exact path="/" component={Form} />
+          {/* <Route exact path='/results' component={Results} /> */}
+        </ Switch>
+      </div>
+    );
+  }
 }
 
 export default App;
+
