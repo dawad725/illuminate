@@ -1,57 +1,102 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-
-const useStyles = makeStyles(theme => ({
-    root: {
-        '& > *': {
-            margin: theme.spacing(1),
-            width: 100,
-        },
-    },
-}));
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { Form, Col, Button } from "react-bootstrap";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-export default function BasicTextFields() {
-    const classes = useStyles();
 
-    function handleSubmit(e) {
-        e.preventDefault();
-        console.log('click')
+
+class BulbForm extends Component {
+    constructor() {
+        super()
+
+
+        this.state = {
+            question1: null,
+            question2: null,
+            question3: null,
+            question4: null,
+            question5: null
+        }
+    }
+
+    onSubmit() {
 
     }
 
-    return (
-        <>
-            <div style={{ 'text-align': 'center' }}>
-                <h4 style={{ 'text-align': 'center' }}>Let's take an inventory of what kind of lights you have</h4>
 
-                <form className={classes.root} noValidate autoComplete="off" onSubmit={handleSubmit}>
-                    <div>
-                        <div>
-                            <h5>How many 60 watt lights do you have ? </h5>
-                            <TextField id="filled-basic" label="qty" variant="standard" />
-                        </div>
-                        <div>
-                            <h5>How many 40 watt lights do you have ? </h5>
-                            <TextField id="filled-basic" label="qty" variant="standard" />
-                        </div>
-                        <div>
-                            <h5>How many 15 watt lights do you have ? </h5>
-                            <TextField id="filled-basic" label="qty" variant="standard" />
-                        </div>
-                        <div>
-                            <h5>How many 4ft linear lights do you have ? </h5>
-                            <TextField id="filled-basic" label="qty" variant="standard" />
-                        </div>
-                    </div>
-                    <Button variant="contained" color="primary" style={{ color: '#F0FF5A' }} type='submit'>
-                        Let's go green!
-                </Button>
-                </form>
-            </div>
-        </>
-    );
+    render() {
+        console.log('state change', this.state)
+        return (
+
+            <>
+                <br></br>
+                <h4 style={{ 'text-align': 'center' }}>Let's take an inventory of what kind of lights you have in your home.</h4>
+                <br></br>
+                <div className='form-style' style={{ 'float': 'center' }}>
+                    <Col sm="5">
+                        <Form >
+                            <Form.Group controlId="formGroupEmail" >
+                                <Form.Label>How many 60 watt bulbs do you have ? </Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    placeholder=""
+                                    value={this.state.question1}
+                                    onChange={(e) => { this.setState({ question1: e.target.value }) }}
+                                />
+                            </Form.Group>
+                            <Form.Group controlId="formGroupPassword">
+                                <Form.Label>How many 40 watt bulbs do you have ? </Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    placeholder=""
+                                    value={this.state.question2}
+                                    onChange={(e) => { this.setState({ question2: e.target.value }) }}
+                                />
+                            </Form.Group>
+                            <Form.Group controlId="formGroupPassword">
+                                <Form.Label>How many 15 watt bulbs do you have ? </Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    placeholder=""
+                                    value={this.state.question3}
+                                    onChange={(e) => { this.setState({ question3: e.target.value }) }}
+                                />
+                            </Form.Group>
+                            <Form.Group controlId="formGroupPassword">
+                                <Form.Label>How many 4ft linear bulbs do you have ? </Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    placeholder=""
+                                    value={this.state.question4}
+                                    onChange={(e) => { this.setState({ question4: e.target.value }) }}
+                                />
+                            </Form.Group>
+                            <Form.Group controlId="formGroupPassword">
+                                <Form.Label>What's the average dollar amount you spend every month on electricity? </Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    placeholder=""
+                                    value={this.state.question5}
+                                    onChange={(e) => { this.setState({ question5: e.target.value }) }}
+                                />
+                            </Form.Group>
+                        </Form>
+                        <Link to="/results">
+                            <Button variant="success" type="button" onClick={() => this.props.onSubmit(this.state)} >Go Green!</Button>
+                        </Link>
+                    </Col>
+                </div>
+            </>
+        )
+    }
+
+
 }
 
+
+
+
+
+
+export default BulbForm;

@@ -1,0 +1,12 @@
+/* .form-style {
+ display: inline-block;
+ text-align: center;
+}
+ */
+
+ body {
+    text-align: center;
+}
+form {
+    display: inline-block;
+}
