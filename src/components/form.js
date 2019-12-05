@@ -12,26 +12,25 @@ class BulbForm extends Component {
 
 
         this.state = {
-            question1: null,
-            question2: null,
-            question3: null,
-            question4: null,
-            question5: null
+            question1: '',
+            question2: '',
+            question3: '',
+            question4: '',
+            question5: ''
         }
     }
 
     onSubmit() {
-
+        console.log("CLICK")
     }
 
 
     render() {
         console.log('state change', this.state)
         return (
-
             <>
                 <br></br>
-                <h4 style={{ 'text-align': 'center' }}>Let's take an inventory of what kind of lights you have in your home.</h4>
+                <h4 style={{ 'text-align': 'center' }}>Let's take an inventory of what kind of lighting you have in your home.</h4>
                 <br></br>
                 <div className='form-style' style={{ 'float': 'center' }}>
                     <Col sm="5">
@@ -83,7 +82,7 @@ class BulbForm extends Component {
                             </Form.Group>
                         </Form>
                         <Link to="/results">
-                            <Button variant="success" type="button" onClick={() => this.props.onSubmit(this.state)} >Go Green!</Button>
+                            <Button variant="success" type="button" >Go Green!</Button>
                         </Link>
                     </Col>
                 </div>
