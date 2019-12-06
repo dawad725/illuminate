@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import { fetchFormData } from "../actions/fetchFormData";
 import { Link } from 'react-router-dom';
 import { Form, Col, Button } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -19,9 +22,8 @@ class BulbForm extends Component {
             question5: ''
         }
     }
-
-    onSubmit() {
-        console.log("CLICK")
+    handleClick(values) {
+        this.props.fetchFormData(values)
     }
 
 
@@ -82,7 +84,7 @@ class BulbForm extends Component {
                             </Form.Group>
                         </Form>
                         <Link to="/results">
-                            <Button variant="success" type="button" >Go Green!</Button>
+                            <Button variant="success" type="button" onClick={() => this.handleClick(this.state)}>Go Green!</Button>
                         </Link>
                     </Col>
                 </div>
@@ -93,9 +95,12 @@ class BulbForm extends Component {
 
 }
 
+function mapStateToProps(state) {
+    return { form: state.form };
+}
 
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({ fetchFormData }, dispatch);
+}
 
-
-
-
-export default BulbForm;
+export default connect(mapStateToProps, mapDispatchToProps)(BulbForm);

@@ -1,4 +1,5 @@
-import { FETCH_FORM_DATA } from "../actions";
+import { FETCH_FORM_DATA } from "../actions/fetchFormData";
+
 
 const DEFAULT_STATE = {
     question1: '',
@@ -12,7 +13,7 @@ const DEFAULT_STATE = {
 export default function (state = DEFAULT_STATE, action) {
     switch (action.type) {
         case FETCH_FORM_DATA:
-
+            console.log("form-reducer", action.payload.data)
             return action.payload.data;
         default:
             return state;
