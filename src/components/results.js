@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { submitFormData } from "../actions/submitFormData";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
+import Highcharts from 'highcharts/highstock'
+import HighchartsReact from 'highcharts-react-official';
 
 class Results extends Component {
     componentDidMount() {
@@ -9,21 +11,46 @@ class Results extends Component {
     }
 
 
-
     renderCongrats() {
+        const options = {
+            chart: {
+                type: 'spline'
+            },
+            title: {
+                text: 'My chart'
+            },
+            series: [
+                {
+                    data: [1, 2, 1, 4, 3, 6]
+                }
+            ]
+        };
 
-        console.log('holla', this.props.savings)
         return (
-            <h1 className="congrats-messaging"> Congratulations- you'll save {this.props.savings} after upgrading your homes lighting to LED </h1>
+            <>
+                <h3 className="congrats-messaging"> Congratulations- you'll save ${this.props.savings} after upgrading your homes lighting to LED </h3>
+                <br></br>
+                <div>
+                    <HighchartsReact
+                        highcharts={Highcharts}
+                        constructorType={"stockChart"}
+                        options={options}
+                    />
+                </div>
+            </>
         )
     }
 
 
     render() {
+
         return (
-            <div>
-                {this.renderCongrats()}
-            </div>
+            <>
+                <div>
+                    {this.renderCongrats()}
+                </div>
+
+            </>
         );
     }
 
