@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { fetchFormData } from "../actions/fetchFormData";
+import { submitFormData } from "../actions/submitFormData";
 import { Link } from 'react-router-dom';
 import { Form, Col, Button } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -23,7 +23,7 @@ class BulbForm extends Component {
         }
     }
     handleClick(values) {
-        this.props.fetchFormData(values)
+        this.props.submitFormData(values)
     }
 
 
@@ -100,7 +100,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ fetchFormData }, dispatch);
+    return bindActionCreators({ submitFormData }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(BulbForm);

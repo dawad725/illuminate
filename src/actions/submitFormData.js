@@ -1,17 +1,19 @@
 import axios from "axios";
 
-export const FETCH_FORM_DATA = "fetch_from_data";
+export const SUBMIT_FORM_DATA = "submit_form_data";
 
-const ROOT_URL = "/"
+const ROOT_URL = "http://localhost:8000/"
 
-export function fetchFormData(values) {
+export function submitFormData(values) {
     console.log('values', values)
     const request = axios.post(`${ROOT_URL}`, values);
+
+    // request.then()
 
     console.log('action.js', request)
 
     return {
-        type: FETCH_FORM_DATA,
+        type: SUBMIT_FORM_DATA,
         payload: request
 
     }
