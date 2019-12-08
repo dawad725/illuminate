@@ -7,19 +7,14 @@ import HighchartsReact from 'highcharts-react-official';
 
 
 class Results extends Component {
-    componentDidMount() {
-        this.props.submitFormData()
-
-    }
 
 
 
-    renderCongrats() {
 
-
+    renderChart() {
         const dataOptions = {
             chart: {
-                type: 'line',
+                type: 'bar',
 
                 spacingBottom: 20,
                 spacingTop: 20,
@@ -43,22 +38,13 @@ class Results extends Component {
             },
             series: [{
                 name: 'Using older lighting',
-                data: [this.props.savings]
+                data: this.props.form.oldlighting
             }, {
                 name: 'After Upgrading to LED',
-                data: [3, 4, 3, 5, 4, 10, 12, 10, 1, 29, 10, 5]
+                data: this.props.form.newlighting
             }]
         };
 
-
-        // dataOptions.series[0].data = [1, 2, 3, 4]
-        // dataOptions.series[0].data.push(dataOptions.series[0].data)
-
-        console.log('figuring it out')
-        console.log(dataOptions.series[0].data)
-
-
-        console.log('this', this.props)
         return (
 
             <>
@@ -79,9 +65,9 @@ class Results extends Component {
             <>
                 <br></br>
                 <br></br>
-                <h3 id="congrats-messaging"> Congratulations- you'll save {this.props.savings}% after upgrading your homes lighting to LED </h3>
+                <h3 id="congrats-messaging"> Congratulations- you'll save {this.props.form.percentagesavings}% after upgrading your homes lighting to LED </h3>
                 <div>
-                    {this.renderCongrats()}
+                    {this.renderChart()}
                 </div>
 
             </>
@@ -92,7 +78,7 @@ class Results extends Component {
 
 function mapStateToProps(state) {
     console.log('state', state)
-    return { savings: state.savings };
+    return { form: state.form };
 }
 
 function mapDispatchToProps(dispatch) {

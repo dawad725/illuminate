@@ -34,8 +34,8 @@ class BulbForm extends Component {
                 <br></br>
                 <h4 style={{ 'text-align': 'center' }}>Let's take an inventory of what kind of lighting you have in your home.</h4>
                 <br></br>
-                <div className='form-style' style={{ 'float': 'center' }}>
-                    <Col sm="5">
+                <div>
+                    <Col sm="6 offset-3">
                         <Form >
                             <Form.Group controlId="formGroupEmail" >
                                 <Form.Label>How many 60 watt bulbs do you have ? </Form.Label>
