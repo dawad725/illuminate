@@ -2,6 +2,8 @@ const router = require('express').Router()
 
 
 // This route will take in data from the form sumitted by the user 
+// convert the values and send it back to the front end to re-render graph 
+// and other dynamic elements 
 router.post('/', (req, res) => {
     let question1 = req.body.question1 // qty example : 5 
     let question2 = req.body.question2
@@ -24,7 +26,10 @@ router.post('/', (req, res) => {
     let x = parseInt(question5);
     let y = newCost / 12;
 
-    // test data to figure out how to pass object to front-end
+    let fiveYearSavings = kwhSavingsConvertedTo$PerYear * 5;
+    let tenYearSavings = kwhSavingsConvertedTo$PerYear * 10;
+    let twentyYearSavings = kwhSavingsConvertedTo$PerYear * 20;
+
     let oldLightingCost = [x, x, x, x, x, x, x, x, x, x, x, x]
     let newLightingCost = [y, y, y, y, y, y, y, y, y, y, y, y]
 
@@ -33,7 +38,11 @@ router.post('/', (req, res) => {
         newlighting: newLightingCost,
         annualcost: currentAnnualCost,
         costafterupgrading: newCost,
-        percentagesavings: savingsConvertedToPercentage
+        percentagesavings: savingsConvertedToPercentage,
+        oneyearsavings: kwhSavingsConvertedTo$PerYear,
+        fiveyearsavings: fiveYearSavings,
+        tenyearsavings: tenYearSavings,
+        twentyyearsavings: twentyYearSavings
     }
 
     res.send(JSON.stringify(dataContainer))

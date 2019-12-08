@@ -15,8 +15,6 @@ class Pnav extends Component {
                     <Navbar.Brand href="/">Illuminate</Navbar.Brand>
                     <Nav className="mr-auto">
                         <Nav.Link href="/">Home</Nav.Link>
-                        <Nav.Link href="#features"></Nav.Link>
-                        <Nav.Link href="#pricing"></Nav.Link>
                     </Nav>
                 </Navbar>
             </>

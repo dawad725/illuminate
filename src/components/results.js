@@ -37,7 +37,7 @@ class Results extends Component {
                 }
             },
             series: [{
-                name: 'Using older lighting',
+                name: 'Using Older Lighting',
                 data: this.props.form.oldlighting
             }, {
                 name: 'After Upgrading to LED',
@@ -65,10 +65,18 @@ class Results extends Component {
             <>
                 <br></br>
                 <br></br>
-                <h3 id="congrats-messaging"> Congratulations- you'll save {this.props.form.percentagesavings}% after upgrading your homes lighting to LED </h3>
+                <h3 id="congrats-messaging"> Congratulations - you'll save {this.props.form.percentagesavings}% after upgrading your homes lighting to LED </h3>
                 <div>
                     {this.renderChart()}
                 </div>
+                <br></br>
+                <br></br>
+                <div className="savings-description" style={{ 'margin-left': '20px' }}>Savings Breakdown:</div>
+                <br></br>
+                <ul>Savings over 1 year ${Math.ceil(this.props.form.oneyearsavings)} </ul>
+                <ul>Savings over 5 year ${Math.ceil(this.props.form.fiveyearsavings)} </ul>
+                <ul>Savings over 10 year ${Math.ceil(this.props.form.tenyearsavings)} </ul>
+                <ul>Savings over 20 year ${Math.ceil(this.props.form.twentyyearsavings)} </ul>
 
             </>
         );
