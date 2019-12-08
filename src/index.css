@@ -4,3 +4,7 @@
 form {
     display: inline-block;
 }
+
+#congrats-messaging {
+    text-align: center;
+}

@@ -41,7 +41,7 @@ class BulbForm extends Component {
                                 <Form.Label>How many 60 watt bulbs do you have ? </Form.Label>
                                 <Form.Control
                                     type="text"
-                                    placeholder=""
+                                    placeholder="qty"
                                     value={this.state.question1}
                                     onChange={(e) => { this.setState({ question1: e.target.value }) }}
                                 />
@@ -50,7 +50,7 @@ class BulbForm extends Component {
                                 <Form.Label>How many 40 watt bulbs do you have ? </Form.Label>
                                 <Form.Control
                                     type="text"
-                                    placeholder=""
+                                    placeholder="qty"
                                     value={this.state.question2}
                                     onChange={(e) => { this.setState({ question2: e.target.value }) }}
                                 />
@@ -59,7 +59,7 @@ class BulbForm extends Component {
                                 <Form.Label>How many 15 watt bulbs do you have ? </Form.Label>
                                 <Form.Control
                                     type="text"
-                                    placeholder=""
+                                    placeholder="qty"
                                     value={this.state.question3}
                                     onChange={(e) => { this.setState({ question3: e.target.value }) }}
                                 />
@@ -68,7 +68,7 @@ class BulbForm extends Component {
                                 <Form.Label>How many 4ft linear bulbs do you have ? </Form.Label>
                                 <Form.Control
                                     type="text"
-                                    placeholder=""
+                                    placeholder="qty"
                                     value={this.state.question4}
                                     onChange={(e) => { this.setState({ question4: e.target.value }) }}
                                 />
@@ -77,7 +77,7 @@ class BulbForm extends Component {
                                 <Form.Label>What's the average dollar amount you spend every month on electricity? </Form.Label>
                                 <Form.Control
                                     type="text"
-                                    placeholder=""
+                                    placeholder="$"
                                     value={this.state.question5}
                                     onChange={(e) => { this.setState({ question5: e.target.value }) }}
                                 />
