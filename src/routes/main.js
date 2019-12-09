@@ -14,7 +14,7 @@ router.post('/', (req, res) => {
     let currentAnnualCost = question5 * 12;
     let dailyHours = 7;
     let utilityRatePerkWh = .11;
-    let totalKwhSavedFor40WattBulb = dailyHours * 365 * 35 / 1000 * question1; // 63 kWh saved
+    let totalKwhSavedFor40WattBulb = dailyHours * 365 * 36 / 1000 * question1; // 63 kWh saved
     let totalKwhSavedFor60WattBulb = dailyHours * 365 * 50.5 / 1000 * question2; // 92 kWh saved
     let totalKwhSavedFor15WattBulb = dailyHours * 365 * 12 / 1000 * question3;// 21 kWh saved
     let totalKwhSavedFor32WattBulb = dailyHours * 365 * 16 / 1000 * question4;// 29 kWh saved
@@ -33,6 +33,19 @@ router.post('/', (req, res) => {
     let oldLightingCost = [x, x, x, x, x, x, x, x, x, x, x, x]
     let newLightingCost = [y, y, y, y, y, y, y, y, y, y, y, y]
 
+    let new60watt = 2.50;
+    let new40watt = 2.50;
+    let new15watt = 1.88;
+    let new32watt = 9.99;
+
+    let totalInvestment = (new60watt * question1) + (new40watt * question2) + (new15watt * question3) + (new32watt * question4);
+    let roi = (kwhSavingsConvertedTo$PerYear / 365);
+    let roiIndays = Math.ceil(totalInvestment / roi);
+    let roiInMonths = Math.ceil(roiIndays / 30);
+    console.log(roi)
+    console.log(Math.ceil(roiIndays / 30))
+
+
     let dataContainer = {
         oldlighting: oldLightingCost,
         newlighting: newLightingCost,
@@ -42,7 +55,12 @@ router.post('/', (req, res) => {
         oneyearsavings: kwhSavingsConvertedTo$PerYear,
         fiveyearsavings: fiveYearSavings,
         tenyearsavings: tenYearSavings,
-        twentyyearsavings: twentyYearSavings
+        twentyyearsavings: twentyYearSavings,
+        kWhOneYear: totalKwhSavedForAllOptions,
+        totalInvestment: totalInvestment,
+        roiInMonths: roiInMonths,
+        roiIndays: roiIndays
+
     }
 
     res.send(JSON.stringify(dataContainer))

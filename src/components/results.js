@@ -14,15 +14,18 @@ class Results extends Component {
     renderChart() {
         const dataOptions = {
             chart: {
+                // backgroundColor: '#f0f8ff',
+                backgroundColor: '#C1E6D8',
                 type: 'bar',
 
                 spacingBottom: 20,
                 spacingTop: 20,
-                spacingLeft: 20,
+                spacingLeft: 10,
                 spacingRight: 20,
+                marginLeft: 80,
 
 
-                width: null,
+                width: 1000,
                 height: null
             },
             title: {
@@ -48,7 +51,7 @@ class Results extends Component {
         return (
 
             <>
-                <div>
+                <div >
                     <HighchartsReact
                         highcharts={Highcharts}
                         constructorType={"chart"}
@@ -64,18 +67,19 @@ class Results extends Component {
         return (
             <>
                 <br></br>
-                <br></br>
                 <h3 id="congrats-messaging"> Congratulations - you'll save {this.props.form.percentagesavings}% after upgrading your homes lighting to LED </h3>
-                <div>
+                <br></br>
+                <div className="container" style={{ 'align': 'center' }}>
                     {this.renderChart()}
                 </div>
                 <br></br>
                 <br></br>
-                <div className="savings-description" style={{ 'margin-left': '20px' }}>Savings Breakdown:</div>
+                <div className="savings-description" style={{ 'margin-left': '20px' }}><b>Savings Breakdown:</b></div>
                 <br></br>
-                <ul>Savings over 1 year ${Math.ceil(this.props.form.oneyearsavings)} </ul>
-                <ul>Savings over 5 year ${Math.ceil(this.props.form.fiveyearsavings)} </ul>
-                <ul>Savings over 10 year ${Math.ceil(this.props.form.tenyearsavings)} </ul>
+                <ul>Savings over 1 year ${Math.ceil(this.props.form.oneyearsavings)} and {Math.ceil(this.props.form.kWhOneYear)}kWh</ul>
+                <ul>Savings over 5 year ${Math.ceil(this.props.form.fiveyearsavings)} and {Math.ceil(this.props.form.kWhOneYear * 5)}kWh</ul>
+                <ul>Savings over 10 year ${Math.ceil(this.props.form.tenyearsavings)} and {Math.ceil(this.props.form.kWhOneYear * 10)}kWh</ul>
+                <ul>Savings over 20 year ${Math.ceil(this.props.form.twentyyearsavings)}  and {Math.ceil(this.props.form.kWhOneYear * 20)}kWh</ul>
                 <ul>Savings over 20 year ${Math.ceil(this.props.form.twentyyearsavings)} </ul>
 
             </>

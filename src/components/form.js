@@ -35,7 +35,7 @@ class BulbForm extends Component {
                 <h4>Let's take an inventory of what kind of lighting you have in your home.</h4>
                 <br></br>
                 <div>
-                    <Container>
+                    <Container >
                         <Col  >
                             <Form >
                                 <Form.Group controlId="formGroup" >
@@ -97,7 +97,7 @@ class BulbForm extends Component {
                         </Col>
                     </Container>
                 </div>
-            </div>
+            </div >
         )
     }
 

@@ -1,0 +1,18 @@
+ body {
+    text-align: center;   
+    
+}
+
+form {
+    display: inline-block;
+}
+
+.App {
+    background: aliceblue;
+    height: 100vh;
+
+}
+
+#congrats-messaging {
+    text-align: center;
+}
