@@ -4,11 +4,11 @@ const router = require('express').Router()
 // convert the values and send it back to the front end to re-render graph 
 // and other dynamic elements 
 router.post('/', (req, res) => {
-    let question1 = req.body.question1; // qty example : 5 
-    let question2 = req.body.question2;
-    let question3 = req.body.question3;
-    let question4 = req.body.question4;
-    let question5 = req.body.question5;
+    let question1 = Math.abs(req.body.question1); // qty example : 5 
+    let question2 = Math.abs(req.body.question2);
+    let question3 = Math.abs(req.body.question3);
+    let question4 = Math.abs(req.body.question4);
+    let question5 = Math.abs(req.body.question5);
 
     let currentAnnualCost = question5 * 12;
     let dailyHours = 7;
@@ -109,9 +109,6 @@ router.post('/', (req, res) => {
         savingsFor40WattLed: savingsFor40WattLed.toFixed(2),
         savingsFor32WattLed: savingsFor32WattLed.toFixed(2),
         savingsFor15WattLed: savingsFor15WattLed.toFixed(2)
-
-
-
 
     }
 
