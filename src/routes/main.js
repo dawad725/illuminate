@@ -1,6 +1,5 @@
 const router = require('express').Router()
 
-
 // This route will take in data from the form sumitted by the user 
 // convert the values and send it back to the front end to re-render graph 
 // and other dynamic elements 
@@ -16,8 +15,8 @@ router.post('/', (req, res) => {
     let utilityRatePerkWh = .11;
 
     //Calculations based on the quantity of the led lighting 
-    let totalKwhSavedFor40WattBulbLed = dailyHours * 365 * 36 / 1000 * question1; // 63 kWh saved
-    let totalKwhSavedFor60WattBulbLed = dailyHours * 365 * 50.5 / 1000 * question2; // 92 kWh saved
+    let totalKwhSavedFor40WattBulbLed = dailyHours * 365 * 36 / 1000 * question2; // 63 kWh saved
+    let totalKwhSavedFor60WattBulbLed = dailyHours * 365 * 50.5 / 1000 * question1; // 92 kWh saved
     let totalKwhSavedFor15WattBulbLed = dailyHours * 365 * 12 / 1000 * question3;// 21 kWh saved
     let totalKwhSavedFor32WattBulbLed = dailyHours * 365 * 16 / 1000 * question4;// 29 kWh saved
     let totalKwhSavedForAllOptions = totalKwhSavedFor60WattBulbLed + totalKwhSavedFor40WattBulbLed + totalKwhSavedFor15WattBulbLed + totalKwhSavedFor32WattBulbLed;
@@ -26,14 +25,18 @@ router.post('/', (req, res) => {
     let savingsConvertedToPercentage = Math.ceil((currentAnnualCost - newCostLed) / currentAnnualCost * 100);
 
     //Calculations based on the quantity of the older lighting 
-    let totalKwhSavedFor40WattBulb = dailyHours * 365 * 40 / 1000 * question1;
-    let totalKwhSavedFor60WattBulb = dailyHours * 365 * 60 / 1000 * question2;
+    let totalKwhSavedFor40WattBulb = dailyHours * 365 * 40 / 1000 * question2;
+    let totalKwhSavedFor60WattBulb = dailyHours * 365 * 60 / 1000 * question1;
     let totalKwhSavedFor15WattBulb = dailyHours * 365 * 15 / 1000 * question3;
     let totalKwhSavedFor32WattBulb = dailyHours * 365 * 32 / 1000 * question4;
     let totalKwhSavedForAllLedOptions = totalKwhSavedFor60WattBulb + totalKwhSavedFor40WattBulb + totalKwhSavedFor15WattBulb + totalKwhSavedFor32WattBulb;
     let kwhSavingsConvertedTo$PerYearForLedForOlderLighting = utilityRatePerkWh * totalKwhSavedForAllLedOptions;
     let costForOldLighting = kwhSavingsConvertedTo$PerYearForLedForOlderLighting;
 
+    let savingsFor60WattLed = utilityRatePerkWh * totalKwhSavedFor60WattBulbLed;
+    let savingsFor40WattLed = utilityRatePerkWh * totalKwhSavedFor40WattBulbLed;
+    let savingsFor32WattLed = utilityRatePerkWh * totalKwhSavedFor32WattBulbLed;
+    let savingsFor15WattLed = utilityRatePerkWh * totalKwhSavedFor15WattBulbLed;
 
     let x = parseInt(question5);
     let y = newCostLed / 12;
@@ -91,7 +94,24 @@ router.post('/', (req, res) => {
         roiIndays: roiIndays,
         totalcosttoreplaceoldlighting: totalInvestmentForOld,
         utilitycostforoldlighting: costForOldLighting,
-        yearlysavings: yearlySavings
+        yearlysavings: yearlySavings,
+        question1: question1,
+        question2: question2,
+        question3: question3,
+        question4: question4,
+        question5: question5,
+        totalKwhSavedFor60WattBulbLed: totalKwhSavedFor60WattBulbLed,
+        totalKwhSavedFor40WattBulbLed: totalKwhSavedFor40WattBulbLed,
+        totalKwhSavedFor15WattBulbLed: totalKwhSavedFor15WattBulbLed,
+        totalKwhSavedFor32WattBulbLed: totalKwhSavedFor32WattBulbLed,
+        utilityRatePerkWh: utilityRatePerkWh,
+        savingsFor60WattLed: savingsFor60WattLed.toFixed(2),
+        savingsFor40WattLed: savingsFor40WattLed.toFixed(2),
+        savingsFor32WattLed: savingsFor32WattLed.toFixed(2),
+        savingsFor15WattLed: savingsFor15WattLed.toFixed(2)
+
+
+
 
     }
 

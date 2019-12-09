@@ -73,7 +73,7 @@ class Results extends Component {
         return (
             <>
                 <br></br>
-                <h3 id="congrats-messaging"> Congratulations - you will save {this.props.form.percentagesavings} % after upgrading your homes lighting to LED !</h3>
+                <h3 id="congrats-messaging"> Congratulations - you will save {this.props.form.percentagesavings}% after upgrading your homes lighting to LED in the first year!</h3>
                 <br></br>
                 <div className="container" style={{ 'align': 'center' }}>
                     {this.renderChart()}
@@ -83,6 +83,10 @@ class Results extends Component {
                 <div className="savings-description" style={{ 'margin-left': '20px' }}><b>Savings Breakdown:</b></div>
                 <br></br>
                 <ul>Total cost to replace all lights with LED:  $ {this.props.form.totalInvestmentForLed} </ul>
+
+                <ul></ul>
+
+
                 <ul>Approximate time it will take to break-even on your investment:  {this.props.form.roiInMonths} months </ul>
                 <div className='container'>
                     <Table striped bordered hover variant="light" style={{ 'textAlign': 'center' }}>
@@ -116,6 +120,52 @@ class Results extends Component {
                             </tr>
                         </tbody>
                     </Table>
+                </div>
+
+                <div>
+                    <div className='container'>
+                        <Table striped bordered hover variant="light" style={{ 'textAlign': 'center' }}>
+                            <thead>
+                                <tr>
+                                    <th>Old Light Bulb Wattage</th>
+                                    <th>New Light Bulb Wattage</th>
+                                    <th>Difference in wattage</th>
+                                    <th>Qty</th>
+                                    <th>Annual cost savings</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>60 Watts</td>
+                                    <td>9.5 Watts</td>
+                                    <td>50.5 Watts</td>
+                                    <td>{this.props.form.question1}</td>
+                                    <td>${this.props.form.savingsFor60WattLed}</td>
+                                </tr>
+                                <tr>
+                                    <td>40 Watts</td>
+                                    <td>4 Watts</td>
+                                    <td>36 Watts</td>
+                                    <td>{this.props.form.question2}</td>
+                                    <td>${this.props.form.savingsFor40WattLed}</td>
+                                </tr>
+                                <tr>
+                                    <td>15 Watts</td>
+                                    <td>12 Watts</td>
+                                    <td>3 Watts</td>
+                                    <td>{this.props.form.question3}</td>
+                                    <td>${this.props.form.savingsFor15WattLed}</td>
+                                </tr>
+                                <tr>
+                                    <td>32 Watts</td>
+                                    <td>16 Watts</td>
+                                    <td>16 Watts</td>
+                                    <td>{this.props.form.question4}</td>
+                                    <td>${this.props.form.savingsFor32WattLed}</td>
+                                </tr>
+                            </tbody>
+                        </Table>
+                    </div>
                 </div>
             </>
         );
