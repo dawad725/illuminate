@@ -67,7 +67,7 @@ class Results extends Component {
         return (
             <>
                 <br></br>
-                <h3 id="congrats-messaging"> Congratulations - you'll save {this.props.form.percentagesavings}% after upgrading your homes lighting to LED </h3>
+                <h3 id="congrats-messaging"> Congratulations - you will save {this.props.form.percentagesavings} % after upgrading your homes lighting to LED </h3>
                 <br></br>
                 <div className="container" style={{ 'align': 'center' }}>
                     {this.renderChart()}
@@ -76,11 +76,12 @@ class Results extends Component {
                 <br></br>
                 <div className="savings-description" style={{ 'margin-left': '20px' }}><b>Savings Breakdown:</b></div>
                 <br></br>
-                <ul>Savings over 1 year ${Math.ceil(this.props.form.oneyearsavings)} and {Math.ceil(this.props.form.kWhOneYear)}kWh</ul>
-                <ul>Savings over 5 year ${Math.ceil(this.props.form.fiveyearsavings)} and {Math.ceil(this.props.form.kWhOneYear * 5)}kWh</ul>
-                <ul>Savings over 10 year ${Math.ceil(this.props.form.tenyearsavings)} and {Math.ceil(this.props.form.kWhOneYear * 10)}kWh</ul>
-                <ul>Savings over 20 year ${Math.ceil(this.props.form.twentyyearsavings)}  and {Math.ceil(this.props.form.kWhOneYear * 20)}kWh</ul>
-                <ul>Savings over 20 year ${Math.ceil(this.props.form.twentyyearsavings)} </ul>
+                <ul>Savings over 1 year $ {Math.ceil(this.props.form.oneyearsavings)} and {Math.ceil(this.props.form.kWhOneYear)} kWh</ul>
+                <ul>Savings over 5 year $ {Math.ceil(this.props.form.fiveyearsavings)} and {Math.ceil(this.props.form.kWhOneYear * 5)} kWh</ul>
+                <ul>Savings over 10 year $ {Math.ceil(this.props.form.tenyearsavings)} and {Math.ceil(this.props.form.kWhOneYear * 10)} kWh</ul>
+                <ul>Savings over 20 year $ {Math.ceil(this.props.form.twentyyearsavings)} and {Math.ceil(this.props.form.kWhOneYear * 20)} kWh</ul>
+                <ul>Total cost to replace all lights with LED:  $ {this.props.form.totalInvestment} </ul>
+                <ul>Aproximate time it will take to breakeven on your investment:  {this.props.form.roiInMonths} months </ul>
 
             </>
         );

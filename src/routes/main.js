@@ -57,7 +57,7 @@ router.post('/', (req, res) => {
         tenyearsavings: tenYearSavings,
         twentyyearsavings: twentyYearSavings,
         kWhOneYear: totalKwhSavedForAllOptions,
-        totalInvestment: totalInvestment,
+        totalInvestment: totalInvestment.toFixed(2),
         roiInMonths: roiInMonths,
         roiIndays: roiIndays
 
