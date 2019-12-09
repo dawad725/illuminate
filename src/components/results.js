@@ -4,12 +4,16 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import Highcharts from 'highcharts/highstock'
 import HighchartsReact from 'highcharts-react-official';
-
+import { Table } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class Results extends Component {
 
 
-
+    // {
+    //     name: 'Using Older Lighting',
+    //         data: this.props.form.oldlighting
+    // },
 
     renderChart() {
         const dataOptions = {
@@ -20,31 +24,33 @@ class Results extends Component {
 
                 spacingBottom: 20,
                 spacingTop: 20,
-                spacingLeft: 10,
+                spacingLeft: 0,
                 spacingRight: 20,
                 marginLeft: 80,
 
 
-                width: 1000,
+                width: null,
                 height: null
             },
             title: {
-                text: 'Energy Consumption',
+                text: 'Energy Savings',
             },
             xAxis: {
-                categories: ['January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+                categories: ['3 year', '6 year', '9 year', '12 year', '15 year', '18 year', '21 year', '25 year']
             },
             yAxis: {
                 title: {
-                    text: 'Monthly Cost'
+                    text: '$ Savings'
+                }
+            },
+            plotOptions: {
+                series: {
+                    color: 'black'
                 }
             },
             series: [{
-                name: 'Using Older Lighting',
-                data: this.props.form.oldlighting
-            }, {
                 name: 'After Upgrading to LED',
-                data: this.props.form.newlighting
+                data: this.props.form.yearlysavings
             }]
         };
 
@@ -67,7 +73,7 @@ class Results extends Component {
         return (
             <>
                 <br></br>
-                <h3 id="congrats-messaging"> Congratulations - you will save {this.props.form.percentagesavings} % after upgrading your homes lighting to LED </h3>
+                <h3 id="congrats-messaging"> Congratulations - you will save {this.props.form.percentagesavings} % after upgrading your homes lighting to LED !</h3>
                 <br></br>
                 <div className="container" style={{ 'align': 'center' }}>
                     {this.renderChart()}
@@ -76,13 +82,41 @@ class Results extends Component {
                 <br></br>
                 <div className="savings-description" style={{ 'margin-left': '20px' }}><b>Savings Breakdown:</b></div>
                 <br></br>
-                <ul>Savings over 1 year $ {Math.ceil(this.props.form.oneyearsavings)} and {Math.ceil(this.props.form.kWhOneYear)} kWh</ul>
-                <ul>Savings over 5 year $ {Math.ceil(this.props.form.fiveyearsavings)} and {Math.ceil(this.props.form.kWhOneYear * 5)} kWh</ul>
-                <ul>Savings over 10 year $ {Math.ceil(this.props.form.tenyearsavings)} and {Math.ceil(this.props.form.kWhOneYear * 10)} kWh</ul>
-                <ul>Savings over 20 year $ {Math.ceil(this.props.form.twentyyearsavings)} and {Math.ceil(this.props.form.kWhOneYear * 20)} kWh</ul>
-                <ul>Total cost to replace all lights with LED:  $ {this.props.form.totalInvestment} </ul>
-                <ul>Aproximate time it will take to breakeven on your investment:  {this.props.form.roiInMonths} months </ul>
-
+                <ul>Total cost to replace all lights with LED:  $ {this.props.form.totalInvestmentForLed} </ul>
+                <ul>Approximate time it will take to break-even on your investment:  {this.props.form.roiInMonths} months </ul>
+                <div className='container'>
+                    <Table striped bordered hover variant="light" style={{ 'textAlign': 'center' }}>
+                        <thead>
+                            <tr>
+                                <th>Year</th>
+                                <th>Utility Savings</th>
+                                <th>kWh savings</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>$ {Math.ceil(this.props.form.oneyearsavings)}</td>
+                                <td>{Math.ceil(this.props.form.kWhOneYear)}</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>$ {Math.ceil(this.props.form.fiveyearsavings)}</td>
+                                <td>{Math.ceil(this.props.form.kWhOneYear * 5)}</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>$ {Math.ceil(this.props.form.tenyearsavings)}</td>
+                                <td>{Math.ceil(this.props.form.kWhOneYear * 10)}</td>
+                            </tr>
+                            <tr>
+                                <td>20</td>
+                                <td>$ {Math.ceil(this.props.form.twentyyearsavings)}</td>
+                                <td>{Math.ceil(this.props.form.kWhOneYear * 20)} </td>
+                            </tr>
+                        </tbody>
+                    </Table>
+                </div>
             </>
         );
     }

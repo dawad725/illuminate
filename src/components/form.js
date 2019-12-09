@@ -21,9 +21,19 @@ class BulbForm extends Component {
             question4: '',
             question5: ''
         }
+        this.keyPressed = this.keyPressed.bind(this)
     }
     handleClick(values) {
         this.props.submitFormData(values)
+
+    }
+
+
+    keyPressed(e) {
+        if (e.key === "Enter") {
+            this.props.submitFormData(this.state)
+            this.props.history.push("/results")
+        }
     }
 
 
@@ -37,7 +47,7 @@ class BulbForm extends Component {
                 <div>
                     <Container >
                         <Col  >
-                            <Form >
+                            <Form>
                                 <Form.Group controlId="formGroup" >
                                     <Form.Label >How many 60 watt bulbs do you have ? </Form.Label>
                                     <Form.Control
@@ -46,6 +56,7 @@ class BulbForm extends Component {
                                         value={this.state.question1}
                                         onChange={(e) => { this.setState({ question1: e.target.value }) }}
                                         style={{ 'text-align': 'center' }}
+                                        onKeyPress={this.keyPressed}
                                     />
                                 </Form.Group>
                                 <Form.Group controlId="formGroup">
@@ -56,6 +67,7 @@ class BulbForm extends Component {
                                         value={this.state.question2}
                                         onChange={(e) => { this.setState({ question2: e.target.value }) }}
                                         style={{ 'text-align': 'center' }}
+                                        onKeyPress={this.keyPressed}
                                     />
                                 </Form.Group>
                                 <Form.Group controlId="formGroup">
@@ -66,6 +78,7 @@ class BulbForm extends Component {
                                         value={this.state.question3}
                                         onChange={(e) => { this.setState({ question3: e.target.value }) }}
                                         style={{ 'text-align': 'center' }}
+                                        onKeyPress={this.keyPressed}
                                     />
                                 </Form.Group>
                                 <Form.Group controlId="formGroup">
@@ -76,6 +89,7 @@ class BulbForm extends Component {
                                         value={this.state.question4}
                                         onChange={(e) => { this.setState({ question4: e.target.value }) }}
                                         style={{ 'text-align': 'center' }}
+                                        onKeyPress={this.keyPressed}
                                     />
                                 </Form.Group>
                                 <Form.Group controlId="formGroup">
@@ -86,6 +100,7 @@ class BulbForm extends Component {
                                         value={this.state.question5}
                                         onChange={(e) => { this.setState({ question5: e.target.value }) }}
                                         style={{ 'text-align': 'left' }}
+                                        onKeyPress={this.keyPressed}
                                     />
                                 </Form.Group>
                             </Form>
