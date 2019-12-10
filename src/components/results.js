@@ -89,7 +89,7 @@ class Results extends Component {
 
                 <ul>Approximate time it will take to break-even on your investment:  {this.props.form.roiInMonths} months </ul>
                 <div className='container'>
-                    <Table striped bordered hover variant="light" style={{ 'textAlign': 'center' }}>
+                    <Table striped bordered variant="light" style={{ 'textAlign': 'center' }}>
                         <thead>
                             <tr>
                                 <th>Year</th>
@@ -124,7 +124,7 @@ class Results extends Component {
 
                 <div>
                     <div className='container'>
-                        <Table striped bordered hover variant="light" style={{ 'textAlign': 'center' }}>
+                        <Table striped bordered variant="light" style={{ 'textAlign': 'center' }}>
                             <thead>
                                 <tr>
                                     <th>Old Light Bulb Wattage</th>
@@ -167,6 +167,8 @@ class Results extends Component {
                         </Table>
                     </div>
                 </div>
+                <br></br>
+                <br></br>
             </>
         );
     }

@@ -1,4 +1,5 @@
-const router = require('express').Router()
+const router = require('express').Router();
+const Product = require('../models/products')
 
 // This route will take in data from the form sumitted by the user 
 // convert the values and send it back to the front end to re-render graph 
@@ -119,7 +120,11 @@ router.post('/', (req, res) => {
 
 
 //testing
-router.get('/', (req, res) => {
+router.get('/products', (req, res) => {
+
+
+
+
     res.end('Hello')
 
 })
