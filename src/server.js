@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const cors = require('cors');
 
 //When we have our database we need to uncomment below and use mongo/mongoose
-mongoose.connect('mongodb://localhost/products', { useNewUrlParser: true })
+mongoose.connect('mongodb://localhost/ledproducts', { useNewUrlParser: true })
 
 const app = express()
 

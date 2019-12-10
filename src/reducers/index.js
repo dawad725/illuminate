@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
 import formReducer from "./form-reducer"
-import savingsPercentageReducer from "./savings-percentage-reducer";
+import fetchProducts from "./products-reducer";
 
 const rootReducer = combineReducers({
     form: formReducer,
-    savings: savingsPercentageReducer
+    products: fetchProducts
 });
 
 export default rootReducer;

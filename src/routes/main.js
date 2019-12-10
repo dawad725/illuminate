@@ -120,12 +120,21 @@ router.post('/', (req, res) => {
 
 
 //testing
-router.get('/products', (req, res) => {
+router.post('/products', (req, res) => {
+
+    let brand = req.body.brand;
 
 
 
 
-    res.end('Hello')
+    Product
+        .find()
+        .exec((err, products) => {
+            res.send({ products: products })
+        })
+
+
+
 
 })
 

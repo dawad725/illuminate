@@ -82,12 +82,20 @@ class Results extends Component {
                 <br></br>
                 <div className="savings-description" style={{ 'margin-left': '20px' }}><b>Savings Breakdown:</b></div>
                 <br></br>
-                <ul>Total cost to replace all lights with LED:  $ {this.props.form.totalInvestmentForLed} </ul>
+                <ul>Average cost to replace all lights with LED:  $ {this.props.form.totalInvestmentForLed} </ul>
 
                 <ul></ul>
 
 
                 <ul>Approximate time it will take to break-even on your investment:  {this.props.form.roiInMonths} months </ul>
+                <h4 style={{ 'textAlign': 'center' }}>Click a brand to see the cost to upgrade your home</h4>
+                <div className="container" style={{ 'textAlign': 'center' }}>
+                    <a href="#" style={{}}><img src="https://www.lightbulbwholesaler.com/images/manufacturers/feit_electric.jpg" width="150" height="100"></img></a>
+                    <a href="#" style={{}}><img src="https://logo-logos.com/wp-content/uploads/2016/11/Philips_logo_blue.png" width="150" height="100"></img></a>
+                    <a href="#" style={{}}><img src="https://vectorlogoseek.com/wp-content/uploads/2019/04/cree-vector-logo.png" width="150" height="100"></img></a>
+                </div>
+                <br></br>
+                <br></br>
                 <div className='container'>
                     <Table striped bordered variant="light" style={{ 'textAlign': 'center' }}>
                         <thead>
