@@ -28,7 +28,7 @@
   "scripts": {
     "client": "react-scripts start",
     "server": "cd src && nodemon server.js && cd ..",
-    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

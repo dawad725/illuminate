@@ -121,6 +121,7 @@ router.post('/', (req, res) => {
 
 
 router.post('/products', (req, res) => {
+    console.log('hello', req.body)
     let brand = req.body.params.brand.brand;
     let question1 = req.body.params.brand.question1;
     let question2 = req.body.params.brand.question2;
@@ -139,6 +140,7 @@ router.post('/products', (req, res) => {
             res.send({ products: products })
         })
 
+    console.log(res.body)
 })
 
 

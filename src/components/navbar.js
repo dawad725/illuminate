@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
-class Pnav extends Component {
+class NavBar extends Component {
 
 
 
@@ -23,4 +23,4 @@ class Pnav extends Component {
     }
 }
 
-export default Pnav;
+export default NavBar;
