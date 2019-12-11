@@ -119,10 +119,16 @@ router.post('/', (req, res) => {
 
 
 
-//testing
-router.post('/products', (req, res) => {
 
-    let brand = req.body.brand;
+router.post('/products', (req, res) => {
+    let brand = req.body.params.brand.brand;
+    let question1 = req.body.params.brand.question1;
+    let question2 = req.body.params.brand.question2;
+    let question3 = req.body.params.brand.question3;
+    let question4 = req.body.params.brand.question4;
+    let question5 = req.body.params.brand.question5;
+
+
 
 
 

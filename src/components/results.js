@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { submitFormData } from "../actions/submitFormData";
+import { sendBackQuery } from "../actions/send-back-query";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import Highcharts from 'highcharts/highstock'
@@ -7,13 +8,30 @@ import HighchartsReact from 'highcharts-react-official';
 import { Table } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
+
 class Results extends Component {
+    componentDidMount() {
+        this.props.submitFormData()
+    }
 
 
-    // {
-    //     name: 'Using Older Lighting',
-    //         data: this.props.form.oldlighting
-    // },
+
+    fetchBrand(brand) {
+
+        this.props.sendBackQuery(
+            {
+                brand: brand,
+                question1: this.props.form.question1,
+                question2: this.props.form.question2,
+                question3: this.props.form.question3,
+                question4: this.props.form.question4,
+                question5: this.props.form.question5
+            })
+        this.props.history.push("/results/brand-details")
+        console.log('results', this.props)
+    }
+
 
     renderChart() {
         const dataOptions = {
@@ -90,9 +108,11 @@ class Results extends Component {
                 <ul>Approximate time it will take to break-even on your investment:  {this.props.form.roiInMonths} months </ul>
                 <h4 style={{ 'textAlign': 'center' }}>Click a brand to see the cost to upgrade your home</h4>
                 <div className="container" style={{ 'textAlign': 'center' }}>
-                    <a href="#" style={{}}><img src="https://www.lightbulbwholesaler.com/images/manufacturers/feit_electric.jpg" width="150" height="100"></img></a>
-                    <a href="#" style={{}}><img src="https://logo-logos.com/wp-content/uploads/2016/11/Philips_logo_blue.png" width="150" height="100"></img></a>
-                    <a href="#" style={{}}><img src="https://vectorlogoseek.com/wp-content/uploads/2019/04/cree-vector-logo.png" width="150" height="100"></img></a>
+                    <a href="#" onClick={e => { e.preventDefault(this.fetchBrand('Feit Electric')) }}>
+                        <img src="https://www.lightbulbwholesaler.com/images/manufacturers/feit_electric.jpg" width="150" height="100"></img>
+                    </a>
+                    <a onClick={e => { e.preventDefault(this.fetchBrand('Philips')) }} href="/brand-details" style={{}}><img src="https://logo-logos.com/wp-content/uploads/2016/11/Philips_logo_blue.png" width="150" height="100"></img></a>
+                    <a onClick={e => { e.preventDefault(this.fetchBrand('Cree')) }} href="/brand-details" style={{}}><img src="https://vectorlogoseek.com/wp-content/uploads/2019/04/cree-vector-logo.png" width="150" height="100"></img></a>
                 </div>
                 <br></br>
                 <br></br>
@@ -189,7 +209,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ submitFormData }, dispatch);
+    return bindActionCreators({ submitFormData, sendBackQuery }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Results);
