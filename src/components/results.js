@@ -18,7 +18,6 @@ class Results extends Component {
 
 
     fetchBrand(brand) {
-
         this.props.sendBackQuery(
             {
                 brand: brand,
@@ -36,8 +35,7 @@ class Results extends Component {
     renderChart() {
         const dataOptions = {
             chart: {
-                // backgroundColor: '#f0f8ff',
-                backgroundColor: '#C1E6D8',
+                backgroundColor: '#e3f6f5',
                 type: 'bar',
 
                 spacingBottom: 20,
@@ -63,7 +61,7 @@ class Results extends Component {
             },
             plotOptions: {
                 series: {
-                    color: 'black'
+                    color: '#357376'
                 }
             },
             series: [{
@@ -88,6 +86,12 @@ class Results extends Component {
 
 
     render() {
+        const hrStyles = {
+            marginTop: '1rem',
+            marginBottom: '1rem',
+            border: 0,
+            borderTop: '1px solid rgba(0, 0, 0, 0.1)'
+        }
         return (
             <>
                 <br></br>
@@ -96,26 +100,16 @@ class Results extends Component {
                 <div className="container" style={{ 'align': 'center' }}>
                     {this.renderChart()}
                 </div>
-                <br></br>
-                <br></br>
-                <div className="savings-description" style={{ 'margin-left': '20px' }}><b>Savings Breakdown:</b></div>
-                <br></br>
-                <ul>Average cost to replace all lights with LED:  $ {this.props.form.totalInvestmentForLed} </ul>
-
-                <ul></ul>
-
-
-                <ul>Approximate time it will take to break-even on your investment:  {this.props.form.roiInMonths} months </ul>
-                <h4 style={{ 'textAlign': 'center' }}>Click a brand to see the cost to upgrade your home</h4>
-                <div className="container" style={{ 'textAlign': 'center' }}>
-                    <a href="#" onClick={e => { e.preventDefault(this.fetchBrand('Feit Electric')) }}>
-                        <img src="https://www.lightbulbwholesaler.com/images/manufacturers/feit_electric.jpg" width="150" height="100"></img>
-                    </a>
-                    <a onClick={e => { e.preventDefault(this.fetchBrand('Philips')) }} href="/brand-details" style={{}}><img src="https://logo-logos.com/wp-content/uploads/2016/11/Philips_logo_blue.png" width="150" height="100"></img></a>
-                    <a onClick={e => { e.preventDefault(this.fetchBrand('Cree')) }} href="/brand-details" style={{}}><img src="https://vectorlogoseek.com/wp-content/uploads/2019/04/cree-vector-logo.png" width="150" height="100"></img></a>
+                <div className="savings-description text-left my-4" style={{ marginLeft: '8em' }}>
+                    <h3>Savings Breakdown:</h3><br />
+                    <p className="lead">Average cost to replace all lights with LED:  $ {this.props.form.totalInvestmentForLed} </p>
+                    <p className="lead">Approximate time it will take to break-even on your investment:  {this.props.form.roiInMonths} months </p>
                 </div>
-                <br></br>
-                <br></br>
+                {/* <hr style={hrStyles} /> */}
+
+
+
+
                 <div className='container'>
                     <Table striped bordered variant="light" style={{ 'textAlign': 'center' }}>
                         <thead>
@@ -194,9 +188,16 @@ class Results extends Component {
                             </tbody>
                         </Table>
                     </div>
+                    <h4 className="text-center mt-2">Click a brand to see the cost to upgrade your home</h4>
+                    <div className="container text-center mb-4 pt-2">
+                        <a href="#" onClick={e => { e.preventDefault(this.fetchBrand('Feit Electric')) }} className="mx-3">
+                            <img src="https://www.lightbulbwholesaler.com/images/manufacturers/feit_electric.jpg" width="150" height="100"></img>
+                        </a>
+                        <a onClick={e => { e.preventDefault(this.fetchBrand('Philips')) }} className="mx-3" href="/brand-details" style={{}}><img src="https://logo-logos.com/wp-content/uploads/2016/11/Philips_logo_blue.png" width="150" height="100"></img></a>
+                        <a onClick={e => { e.preventDefault(this.fetchBrand('Cree')) }} className="mx-3" href="/brand-details" style={{}}><img src="https://vectorlogoseek.com/wp-content/uploads/2019/04/cree-vector-logo.png" width="150" height="100"></img></a>
+                    </div>
                 </div>
-                <br></br>
-                <br></br>
+
             </>
         );
     }

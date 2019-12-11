@@ -1,6 +1,6 @@
  body {
     text-align: center; 
-    background-color: aliceblue;
+    background-color: #e5dfdf;
 
 }
 
@@ -9,7 +9,7 @@ form {
 }
 
 .App {
-    background: aliceblue;
+    background: #e5dfdf;
     /* background:#28a745; */
      height: 100vh;
     min-height : 100vh;

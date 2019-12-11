@@ -130,7 +130,7 @@ router.post('/products', (req, res) => {
 
 
 
-
+    console.log('brand', brand, question1, question2, question3, question4, question5)
 
 
     Product
@@ -138,9 +138,6 @@ router.post('/products', (req, res) => {
         .exec((err, products) => {
             res.send({ products: products })
         })
-
-
-
 
 })
 

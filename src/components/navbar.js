@@ -11,10 +11,10 @@ class Pnav extends Component {
     render() {
         return (
             <>
-                <Navbar bg="dark" variant="dark">
-                    <Navbar.Brand href="/">Illuminate</Navbar.Brand>
+                <Navbar style={{ backgroundColor: '#1d4d4f' }}>
+                    <Navbar.Brand href="/" className="text-light">Illuminate</Navbar.Brand>
                     <Nav className="mr-auto">
-                        <Nav.Link href="/">Home</Nav.Link>
+                        <Nav.Link href="/" className="text-light">Home</Nav.Link>
                     </Nav>
                 </Navbar>
             </>
