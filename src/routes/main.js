@@ -121,7 +121,8 @@ router.post('/', (req, res) => {
 
 
 router.post('/products', (req, res) => {
-    console.log('hello', req.body)
+    console.log('hello', req)
+
     let brand = req.body.params.brand.brand;
     let question1 = req.body.params.brand.question1;
     let question2 = req.body.params.brand.question2;
@@ -130,17 +131,131 @@ router.post('/products', (req, res) => {
     let question5 = req.body.params.brand.question5;
 
 
-
-    console.log('brand', brand, question1, question2, question3, question4, question5)
-
-
     Product
-        .find()
+        .find({ brand: brand })
         .exec((err, products) => {
-            res.send({ products: products })
+
+            let productContainer = [];
+            products.map(product => {
+                let bulbWattage = product.wattageequivalent;
+                let totalQty;
+                let totalCost;
+                let productSku;
+                let productImage;
+                let productDescription;
+                let productPrice;
+                let productPackQty;
+                let productWatts;
+
+
+
+
+                if (bulbWattage == 60) {
+                    totalQty = Math.ceil(question1 / product.qty);
+                    totalCost = totalQty * product.price;
+                    brand = product.brand
+                    productSku = product.sku;
+                    productImage = product.image;
+                    productDescription = product.description;
+                    productPrice = product.price;
+                    productPackQty = product.qty
+                    productWatts = product.wattageequivalent;
+
+                    productContainer.push({
+                        productSku: productSku,
+                        productImage: productImage,
+                        productDescription: productDescription,
+                        productPrice: productPrice,
+                        productPackQty: productPackQty,
+                        productWatts: productWatts,
+                        brand: brand,
+                        totalQty: totalQty,
+                        totalCost: totalCost
+
+                    })
+                }
+                if (bulbWattage == 40) {
+                    totalQty = Math.ceil(question2 / product.qty);
+                    totalCost = totalQty * product.price;
+                    brand = product.brand
+                    productSku = product.sku;
+                    productImage = product.image;
+                    productDescription = product.description;
+                    productPrice = product.price;
+                    productPackQty = product.qty
+                    productWatts = product.wattageequivalent;
+
+                    productContainer.push({
+                        productSku: productSku,
+                        productImage: productImage,
+                        productDescription: productDescription,
+                        productPrice: productPrice,
+                        productPackQty: productPackQty,
+                        productWatts: productWatts,
+                        brand: brand,
+                        totalQty: totalQty,
+                        totalCost: totalCost
+
+                    })
+                }
+                if (bulbWattage == 15) {
+                    totalQty = Math.ceil(question3 / product.qty);
+                    totalCost = totalQty * product.price;
+                    brand = product.brand
+                    productSku = product.sku;
+                    productImage = product.image;
+                    productDescription = product.description;
+                    productPrice = product.price;
+                    productPackQty = product.qty
+                    productWatts = product.wattageequivalent;
+
+                    productContainer.push({
+                        productSku: productSku,
+                        productImage: productImage,
+                        productDescription: productDescription,
+                        productPrice: productPrice,
+                        productPackQty: productPackQty,
+                        productWatts: productWatts,
+                        brand: brand,
+                        totalQty: totalQty,
+                        totalCost: totalCost
+
+                    })
+                }
+                if (bulbWattage == 32) {
+                    totalQty = Math.ceil(question4 / product.qty);
+                    totalCost = totalQty * product.price;
+                    brand = product.brand
+                    productSku = product.sku;
+                    productImage = product.image;
+                    productDescription = product.description;
+                    productPrice = product.price;
+                    productPackQty = product.qty
+                    productWatts = product.wattageequivalent;
+
+                    productContainer.push({
+                        productSku: productSku,
+                        productImage: productImage,
+                        productDescription: productDescription,
+                        productPrice: productPrice,
+                        productPackQty: productPackQty,
+                        productWatts: productWatts,
+                        brand: brand,
+                        totalQty: totalQty,
+                        totalCost: totalCost
+
+                    })
+                }
+
+
+
+
+
+            })
+            res.send({ productContainer })
+
         })
 
-    console.log(res.body)
 })
 
 

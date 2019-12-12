@@ -10,12 +10,16 @@ class BrandDetails extends Component {
 
 
     renderDetails() {
-        console.log('renderdetails', this.props.products)
-        return _.map(this.props.products.products, product => {
+        console.log('renderdetails', this.props)
+        return _.map(this.props.products.productContainer, product => {
             return (
+                <>
                 <div>
                     {product.brand}
+                    {product.productDescription}
                 </div>
+                    <img height="100" width="100" src={product.productImage}></img>
+                </>
             )
         });
     }
