@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const SUBMIT_FORM_DATA = "submit_form_data";
 
-const ROOT_URL = "http://localhost:8000/"
+const ROOT_URL = "/api/submit"
 
 export function submitFormData(values) {
     console.log('values', values)

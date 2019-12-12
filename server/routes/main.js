@@ -4,7 +4,8 @@ const Product = require('../models/products')
 // This route will take in data from the form sumitted by the user 
 // convert the values and send it back to the front end to re-render graph 
 // and other dynamic elements 
-router.post('/', (req, res) => {
+router.post('/api/submit', (req, res) => {
+    console.log('post received')
     let question1 = Math.abs(req.body.question1); // qty example : 5 
     let question2 = Math.abs(req.body.question2);
     let question3 = Math.abs(req.body.question3);
@@ -112,7 +113,7 @@ router.post('/', (req, res) => {
         savingsFor15WattLed: savingsFor15WattLed.toFixed(2)
 
     }
-
+    console.log(dataContainer)
     res.send(JSON.stringify(dataContainer))
 })
 
@@ -120,7 +121,7 @@ router.post('/', (req, res) => {
 
 
 
-router.post('/products', (req, res) => {
+router.post('/api/products', (req, res) => {
     console.log('hello', req)
 
     let brand = req.body.params.brand.brand;

@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const cors = require('cors');
 const keys = require('./config/keys')
-//When we have our database we need to uncomment below and use mongo/mongoose
+
 mongoose.connect(keys.MONGODB_URI, { useNewUrlParser: true })
 
 const app = express()
@@ -20,7 +20,7 @@ const mainRoutes = require('./routes/main')
 app.use(mainRoutes)
 
 app.listen(port, () => {
-    console.log('Node.js listening on port ' + 8000)
+    console.log('Node.js listening on port ' + port)
 })
 
 
