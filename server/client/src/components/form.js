@@ -20,11 +20,14 @@ class BulbForm extends Component {
         this.keyPressed = this.keyPressed.bind(this);
     }
     handleClick(values) {
-        this.props.submitFormData(values);
+        console.log("CLICKED")
+        this.props.submitFormData(this.state);
+        this.props.history.push("/results");
     }
 
     keyPressed(e) {
         if (e.key === "Enter") {
+            console.log("ENTER")
             this.props.submitFormData(this.state);
             this.props.history.push("/results");
         }
@@ -38,11 +41,11 @@ class BulbForm extends Component {
                 <div>
                     <Container>
                         <Col className="col-md-7 col-sm-4 m-auto">
-                            <Form>
+                            <Form onSubmit={(e) => { console.log('submitted'); e.preventDefault() }}>
                                 <Form.Group controlId="formGroup">
                                     <Form.Label className="lead">How many 60 watt bulbs do you have ? </Form.Label>
                                     <Form.Control
-                                        type="number"
+                                        type="text"
                                         placeholder="0"
                                         value={this.state.question1}
                                         className="text-left"
@@ -55,7 +58,7 @@ class BulbForm extends Component {
                                 <Form.Group controlId="formGroup">
                                     <Form.Label className="lead">How many 40 watt bulbs do you have ? </Form.Label>
                                     <Form.Control
-                                        type="number"
+                                        type="text"
                                         placeholder="0"
                                         value={this.state.question2}
                                         className="text-left"
@@ -68,7 +71,7 @@ class BulbForm extends Component {
                                 <Form.Group controlId="formGroup">
                                     <Form.Label className="lead">How many 15 watt bulbs do you have ? </Form.Label>
                                     <Form.Control
-                                        type="number"
+                                        type="text"
                                         placeholder="0"
                                         value={this.state.question3}
                                         className="text-left"
@@ -82,7 +85,7 @@ class BulbForm extends Component {
                                 <Form.Group controlId="formGroup">
                                     <Form.Label className="lead">How many 4ft linear bulbs do you have ? </Form.Label>
                                     <Form.Control
-                                        type="number"
+                                        type="text"
                                         placeholder="0"
                                         className="text-left"
                                         value={this.state.question4}
@@ -114,17 +117,16 @@ class BulbForm extends Component {
                                 </Form.Group>
                             </Form>
                             <div className="text-center mt-3">
-                                <Link to="/results">
-                                    <Button
-                                        className="text-center"
-                                        type="button"
-                                        size="lg"
-                                        style={{ backgroundColor: '#357376', color: "#eee", border: 'none' }}
-                                        onClick={() => this.handleClick(this.state)}
-                                    >
-                                        Go Green!
+                                <Button
+                                    className="text-center"
+                                    type="button"
+                                    size="lg"
+                                    style={{ backgroundColor: '#357376', color: "#eee", border: 'none' }}
+                                    onClick={() => this.handleClick(this.state)}
+                                >
+                                    Go Green!
                            </Button>
-                                </Link>
+
                             </div>
                         </Col>
                     </Container>

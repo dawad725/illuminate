@@ -10,7 +10,7 @@ export function submitFormData(values) {
 
     // request.then()
 
-    console.log('action.js', request)
+    //console.log('action.js', request)
 
     return {
         type: SUBMIT_FORM_DATA,

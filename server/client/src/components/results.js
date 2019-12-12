@@ -12,7 +12,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 class Results extends Component {
     componentDidMount() {
-        this.props.submitFormData()
+        //this.props.submitFormData()
     }
 
 
