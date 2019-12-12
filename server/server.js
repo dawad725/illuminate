@@ -2,9 +2,9 @@ const express = require('express')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const cors = require('cors');
-
+const keys = require('./config/keys')
 //When we have our database we need to uncomment below and use mongo/mongoose
-mongoose.connect('mongodb://localhost/ledproducts', { useNewUrlParser: true })
+mongoose.connect(keys.MONGODB_URI, { useNewUrlParser: true })
 
 const app = express()
 

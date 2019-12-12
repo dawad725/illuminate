@@ -6,15 +6,11 @@
     "@material-ui/core": "^4.7.1",
     "@material/textfield": "^4.0.0",
     "antd": "^3.26.1",
-    "body-parser": "^1.19.0",
     "bootstrap": "^4.4.1",
     "browser-router": "^0.2.0",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
     "highcharts": "^7.2.1",
     "highcharts-react-official": "^2.2.2",
     "highcharts-solid-gauge": "^0.1.7",
-    "mongoose": "^5.8.0",
     "react": "^16.12.0",
     "react-bootstrap": "^1.0.0-beta.16",
     "react-dom": "^16.12.0",
@@ -25,21 +21,20 @@
     "redux": "^4.0.4",
     "redux-promise": "^0.6.0"
   },
-  "engines": {
-    "node": "10.0.0",
-    "npm": "5.1.0"
-  },
+  "proxy": "http://localhost:8000",
   "scripts": {
     "client": "react-scripts start",
     "server": "cd src && nodemon server.js && cd ..",
-    "start": "node server.js",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "devDependencies": {
+    "concurrently": "^5.0.1"
   },
   "browserslist": {
     "production": [
@@ -52,8 +47,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "concurrently": "^5.0.1"
   }
 }

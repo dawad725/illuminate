@@ -163,7 +163,7 @@ router.post('/products', (req, res) => {
                     productPackQty = product.qty
                     productWatts = product.wattageequivalent;
 
-                    totalProductSum+=totalCost
+                    totalProductSum += totalCost
 
                     productContainer.push({
                         productSku: productSku,
