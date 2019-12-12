@@ -86,12 +86,6 @@ class Results extends Component {
 
 
     render() {
-        // const hrStyles = {
-        //     marginTop: '1rem',
-        //     marginBottom: '1rem',
-        //     border: 0,
-        //     borderTop: '1px solid rgba(0, 0, 0, 0.1)'
-        // }
         return (
             <>
                 <br></br>
@@ -105,7 +99,7 @@ class Results extends Component {
                     <p className="lead">Average cost to replace all lights with LED:  $ {this.props.form.totalInvestmentForLed} </p>
                     <p className="lead">Approximate time it will take to break-even on your investment:  {this.props.form.roiInMonths} months </p>
                 </div>
-                {/* <hr style={hrStyles} /> */}
+
 
 
 

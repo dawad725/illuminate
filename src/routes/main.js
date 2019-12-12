@@ -135,6 +135,7 @@ router.post('/products', (req, res) => {
         .find({ brand: brand })
         .exec((err, products) => {
 
+            let totalProductSum = 0;
             let productContainer = [];
             products.map(product => {
                 let bulbWattage = product.wattageequivalent;
@@ -153,6 +154,7 @@ router.post('/products', (req, res) => {
                 if (bulbWattage == 60) {
                     totalQty = Math.ceil(question1 / product.qty);
                     totalCost = totalQty * product.price;
+
                     brand = product.brand
                     productSku = product.sku;
                     productImage = product.image;
@@ -160,6 +162,8 @@ router.post('/products', (req, res) => {
                     productPrice = product.price;
                     productPackQty = product.qty
                     productWatts = product.wattageequivalent;
+
+                    totalProductSum+=totalCost
 
                     productContainer.push({
                         productSku: productSku,
@@ -170,8 +174,7 @@ router.post('/products', (req, res) => {
                         productWatts: productWatts,
                         brand: brand,
                         totalQty: totalQty,
-                        totalCost: totalCost
-
+                        totalCost: totalCost.toFixed(2),
                     })
                 }
                 if (bulbWattage == 40) {
@@ -184,6 +187,7 @@ router.post('/products', (req, res) => {
                     productPrice = product.price;
                     productPackQty = product.qty
                     productWatts = product.wattageequivalent;
+                    totalProductSum += totalCost
 
                     productContainer.push({
                         productSku: productSku,
@@ -194,7 +198,7 @@ router.post('/products', (req, res) => {
                         productWatts: productWatts,
                         brand: brand,
                         totalQty: totalQty,
-                        totalCost: totalCost
+                        totalCost: totalCost.toFixed(2)
 
                     })
                 }
@@ -208,6 +212,7 @@ router.post('/products', (req, res) => {
                     productPrice = product.price;
                     productPackQty = product.qty
                     productWatts = product.wattageequivalent;
+                    totalProductSum += totalCost
 
                     productContainer.push({
                         productSku: productSku,
@@ -218,7 +223,7 @@ router.post('/products', (req, res) => {
                         productWatts: productWatts,
                         brand: brand,
                         totalQty: totalQty,
-                        totalCost: totalCost
+                        totalCost: totalCost.toFixed(2)
 
                     })
                 }
@@ -232,6 +237,7 @@ router.post('/products', (req, res) => {
                     productPrice = product.price;
                     productPackQty = product.qty
                     productWatts = product.wattageequivalent;
+                    totalProductSum += totalCost
 
                     productContainer.push({
                         productSku: productSku,
@@ -242,11 +248,11 @@ router.post('/products', (req, res) => {
                         productWatts: productWatts,
                         brand: brand,
                         totalQty: totalQty,
-                        totalCost: totalCost
+                        totalCost: totalCost.toFixed(2),
+                        totalProductSum: totalProductSum
 
                     })
                 }
-
 
 
 
