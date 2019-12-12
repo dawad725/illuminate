@@ -25,10 +25,14 @@
     "redux": "^4.0.4",
     "redux-promise": "^0.6.0"
   },
+  "engines": {
+    "node": "10.0.0",
+    "npm": "5.1.0"
+  },
   "scripts": {
     "client": "react-scripts start",
     "server": "cd src && nodemon server.js && cd ..",
-    "start": "react-scripts start",
+    "start": "node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
