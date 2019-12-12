@@ -23,8 +23,6 @@
   },
   "proxy": "http://localhost:8000",
   "scripts": {
-    "client": "react-scripts start",
-    "server": "cd src && nodemon server.js && cd ..",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
