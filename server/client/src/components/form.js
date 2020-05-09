@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { submitFormData } from "../actions/submitFormData";
-import { Link } from "react-router-dom";
 import { Form, Col, Button, Container, InputGroup } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -20,14 +19,12 @@ class BulbForm extends Component {
         this.keyPressed = this.keyPressed.bind(this);
     }
     handleClick(values) {
-        console.log("CLICKED")
         this.props.submitFormData(this.state);
         this.props.history.push("/results");
     }
 
     keyPressed(e) {
         if (e.key === "Enter") {
-            console.log("ENTER")
             this.props.submitFormData(this.state);
             this.props.history.push("/results");
         }
@@ -78,7 +75,6 @@ class BulbForm extends Component {
                                         onChange={e => {
                                             this.setState({ question3: e.target.value });
                                         }}
-                                        className="text-left"
                                         onKeyPress={this.keyPressed}
                                     />
                                 </Form.Group>
@@ -92,7 +88,6 @@ class BulbForm extends Component {
                                         onChange={e => {
                                             this.setState({ question4: e.target.value });
                                         }}
-                                        className="text-left"
                                         onKeyPress={this.keyPressed}
                                     />
                                 </Form.Group>

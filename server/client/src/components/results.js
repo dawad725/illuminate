@@ -11,9 +11,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 class Results extends Component {
-    componentDidMount() {
-        //this.props.submitFormData()
-    }
 
 
 
@@ -88,24 +85,29 @@ class Results extends Component {
     render() {
         return (
             <>
-                <br></br>
-                <h3 id="congrats-messaging"> Congratulations - you will save {this.props.form.percentagesavings}% after upgrading your homes lighting to LED in the first year!</h3>
-                <br></br>
-                <div className="container" style={{ 'align': 'center' }}>
-                    {this.renderChart()}
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-12 col-xs-12">
+                            <br></br>
+                            <h3 id="congrats-messaging"> Congratulations - you will save {this.props.form.percentagesavings}% after upgrading your homes lighting to LED in the first year!</h3>
+                            <br></br>
+                            <div className="container" style={{ 'align': 'center' }}>
+                                {this.renderChart()}
+                            </div>
+                            <div className="savings-description  my-4" style={{ textAlign: 'center' }}>
+                                <h3>Savings Breakdown:</h3><br />
+                                <p className="lead">Average cost to replace all lights with LED:  $ {this.props.form.totalInvestmentForLed} </p>
+                                <p className="lead">Approximate time it will take to break-even on your investment:  {this.props.form.roiInMonths} months </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div className="savings-description text-left my-4" style={{ marginLeft: '8em' }}>
-                    <h3>Savings Breakdown:</h3><br />
-                    <p className="lead">Average cost to replace all lights with LED:  $ {this.props.form.totalInvestmentForLed} </p>
-                    <p className="lead">Approximate time it will take to break-even on your investment:  {this.props.form.roiInMonths} months </p>
-                </div>
-
 
 
 
 
                 <div className='container'>
-                    <Table striped bordered variant="light" style={{ 'textAlign': 'center' }}>
+                    <Table striped bordered variant="light" style={{ 'textAlign': 'center' }} responsive>
                         <thead>
                             <tr>
                                 <th>Year</th>
@@ -140,7 +142,7 @@ class Results extends Component {
 
                 <div>
                     <div className='container'>
-                        <Table striped bordered variant="light" style={{ 'textAlign': 'center' }}>
+                        <Table striped bordered variant="light" style={{ 'textAlign': 'center' }} responsive>
                             <thead>
                                 <tr>
                                     <th>Old Light Bulb Wattage</th>

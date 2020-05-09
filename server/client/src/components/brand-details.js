@@ -16,9 +16,9 @@ class BrandDetails extends Component {
             return (
                 <>
                     <div className="col-md-6">
-                        <img className="mt-3" height="200" width="200" src={product.productImage}></img>
+                        <img className="mt-3" height="200" width="200" alt="productImage" src={product.productImage}></img>
                         <div className="lead"><b style={{ 'fontWeight': 'bold' }}>Quantity I need:</b> {product.totalQty} Packs </div>
-                        <div className="lead"><b style={{'fontWeight': 'bold'}}>Total price: </b>${product.totalCost}</div>
+                        <div className="lead"><b style={{ 'fontWeight': 'bold' }}>Total price: </b>${product.totalCost}</div>
                         <div className="lead">{product.brand} </div>
                         <div className="lead">{product.productWatts} Watts</div>
                         <div className="lead">{product.productDescription}</div>
