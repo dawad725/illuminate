@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const Product = require('../models/products')
 
-// This route will take in data from the form sumitted by the user 
+// This route will take in data from the form submitted by the user 
 // convert the values and send it back to the front end to re-render graph 
 // and other dynamic elements 
 router.post('/api/submit', (req, res) => {

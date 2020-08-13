@@ -5,9 +5,8 @@ export const SUBMIT_FORM_DATA = "submit_form_data";
 const ROOT_URL = "/api/submit"
 
 export function submitFormData(values) {
-    console.log('values', values)
-    const request = axios.post(`${ROOT_URL}`, values);
 
+    const request = axios.post(`${ROOT_URL}`, values);
 
     return {
         type: SUBMIT_FORM_DATA,

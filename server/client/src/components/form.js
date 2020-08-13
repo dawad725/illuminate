@@ -31,7 +31,6 @@ class BulbForm extends Component {
     }
 
     render() {
-        console.log("state change", this.state);
         return (
             <div className="form text-left text-wrap">
                 <h4 className="text-center my-4 px-3">Let's take an inventory of what kind of lighting you have in your home.</h4>

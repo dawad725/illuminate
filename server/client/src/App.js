@@ -9,7 +9,7 @@ import BrandDetails from './components/brand-details';
 class App extends Component {
   render() {
     return (
-      <div className="App" >
+      <div className="App">
         <Switch>
           <Route exact path="/" component={BulbForm} />
           <Route exact path='/results' component={Results} />

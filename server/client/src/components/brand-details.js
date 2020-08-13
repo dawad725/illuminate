@@ -11,7 +11,6 @@ class BrandDetails extends Component {
 
 
     renderDetails() {
-        console.log('renderdetails', this.props)
         return _.map(this.props.products.productContainer, product => {
             return (
                 <>
@@ -62,7 +61,6 @@ class BrandDetails extends Component {
 
 }
 function mapStateToProps(state) {
-    console.log('brand-details', state)
     return { products: state.products };
 }
 

@@ -25,7 +25,6 @@ class Results extends Component {
                 question5: this.props.form.question5
             })
         this.props.history.push("/results/brand-details")
-        console.log('results', this.props)
     }
 
 
@@ -186,9 +185,7 @@ class Results extends Component {
                     </div>
                     <h4 className="text-center mt-2">Click a brand to see the cost to upgrade your home</h4>
                     <div className="container text-center mb-4 pt-2">
-                        <a href="#" onClick={e => { e.preventDefault(this.fetchBrand('Feit Electric')) }} className="mx-3">
-                            <img src="https://www.lightbulbwholesaler.com/images/manufacturers/feit_electric.jpg" width="150" height="100"></img>
-                        </a>
+                        <a href="#" onClick={e => { e.preventDefault(this.fetchBrand('Feit Electric')) }} className="mx-3"><img src="https://www.lightbulbwholesaler.com/images/manufacturers/feit_electric.jpg" width="150" height="100"></img></a>
                         <a onClick={e => { e.preventDefault(this.fetchBrand('Philips')) }} className="mx-3" href="/brand-details" style={{}}><img src="https://logo-logos.com/wp-content/uploads/2016/11/Philips_logo_blue.png" width="150" height="100"></img></a>
                         <a onClick={e => { e.preventDefault(this.fetchBrand('Cree')) }} className="mx-3" href="/brand-details" style={{}}><img src="https://vectorlogoseek.com/wp-content/uploads/2019/04/cree-vector-logo.png" width="150" height="100"></img></a>
                     </div>

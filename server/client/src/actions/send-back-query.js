@@ -17,7 +17,6 @@ export function sendBackQuery(brand, question1, question2, question3, question4,
         }
     });
 
-    // console.log('send back request', request)
 
     return {
         type: SEND_BACK_QUERY,
